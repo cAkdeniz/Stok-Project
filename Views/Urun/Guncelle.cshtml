@@ -1,0 +1,37 @@
+﻿@using StokProject.Models.Entity
+@model Urunler
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Guncelle", "Urun", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.Ad)
+        @Html.ValidationMessageFor(x => x.Ad, "", new { @class = "text-danger", @style = "padding-top:10px" })
+        @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Marka)
+        @Html.ValidationMessageFor(x => x.Marka, "", new { @class = "text-danger", @style = "padding-top:10px" })
+        @Html.TextBoxFor(x => x.Marka, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Kategori </label>
+        @Html.ValidationMessageFor(x => x.KategoriId, "", new { @class = "text-danger", @style = "padding-top:10px" })
+        @Html.DropDownListFor(x => x.KategoriId, (List<SelectListItem>)ViewBag.Kategoriler, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Fiyat)
+        @Html.ValidationMessageFor(x => x.Fiyat, "", new { @class = "text-danger", @style = "padding-top:10px" })
+        @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Stok)
+        @Html.ValidationMessageFor(x => x.Stok, "", new { @class = "text-danger", @style = "padding-top:10px" })
+        @Html.TextBoxFor(x => x.Stok, new { @class = "form-control" })
+    </div>
+    <button class="btn btn-success">Güncelle</button>
+}
+

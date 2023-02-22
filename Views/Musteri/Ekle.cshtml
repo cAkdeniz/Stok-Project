@@ -1,0 +1,30 @@
+﻿@using StokProject.Models.Entity
+@model Musteriler
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" class="form-group">
+    <div class="form-group">
+        <label>Müşteri Adı: </label>
+        @Html.ValidationMessageFor(x=>x.Ad, "", new { @class = "text-danger", @style = "padding-top:10px" })
+        @Html.TextBoxFor(x=>x.Ad, new { @class = "form-control"} )
+    </div>
+    <div class="form-group">
+        <label>Müşteri Soyadı: </label>
+        @Html.ValidationMessageFor(x=>x.Soyad, "", new { @class = "text-danger", @style = "padding-top:10px" })
+        @Html.TextBoxFor(x=>x.Soyad, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <button class="btn btn-info" id="btn">Ekle</button>
+    </div>
+    <script>
+        $(function () {
+            $("#btn").click(function () {
+                alert("Ekleme İşlemi Başarılı");
+            });
+        });
+    </script>
+</form>
+
